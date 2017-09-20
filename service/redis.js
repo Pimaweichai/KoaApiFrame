@@ -9,7 +9,7 @@ if(!config.redis){
     throw new Error('没有redis配置信息');
 }
 
-const client = redis.create(config.redis);
+const client = redis.createClient(config.redis);
 
 module.exports = client;
 
