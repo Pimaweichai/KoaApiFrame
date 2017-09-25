@@ -4,8 +4,6 @@ module.exports = (sequelize,DataTypes)=>{
             type:DataTypes.INTEGER,
             primaryKey:true,
             autoIncrement:true,
-            unique:true,
-            allowNull:false
         },
         name: {
             type:DataTypes.STRING,
@@ -18,6 +16,13 @@ module.exports = (sequelize,DataTypes)=>{
         password:{
             type:DataTypes.STRING,
             allowNull:false,
+        },
+        brief:{
+            type:DataTypes.STRING,
+            allowNull:true,
+            validate:{
+                max:50
+            }
         }
     },{
         indexes:[
@@ -26,8 +31,7 @@ module.exports = (sequelize,DataTypes)=>{
                 name:'NAMEINDEX'
             }
         ],
-        createAt:DataTypes.DATE,
-        updateAt:DataTypes.DATE,
-        initialAutoIncrement:10000
+        timestamps:true,
+        initialAutoIncrement:1001
     })
 };
